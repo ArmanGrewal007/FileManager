@@ -34,3 +34,17 @@ It contains all necessary JavaScript files, that maintain all the functionality.
 | Sr no. | File/Folder name | Description |
 | -- | -- | -- |
 | 1 | **db_init.js** | PostgresSQL database setup and tables initialization |
+| 2 | **db.js** | All methods related to user login/register (*users* table) |
+| 3 | **file_manager.js** | All methods related to *folders* and *files* tables |
+| 4 | **index.js** | Main file that contains all necessary API endpoints | 
+| 5 | **.env** | Environment variable configuration file | 
+| 6 | **uploads/** | Folder which stores files temporarily (for validation checks) before pushing them to s3 bucket |
+
+#### Detailed overview of all contents 
+
+##### db_init.js 
+
+Uses the `pg` package to setup connection to our database. <br>
+```javascript
+async function initialize_tables()
+```
