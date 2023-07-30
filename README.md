@@ -69,10 +69,10 @@ We have 3 tables in our database -
 
 #### 2. db.js 
 
-`register_user(username, email, password)` Registers the user by adding it to *users* table <br>
-`login_user(username, password)` Logs the user in by confirming its username and matching provided password with password from *users* table
+- `register_user(username, email, password)` Registers the user by adding it to *users* table <br>
+- `login_user(username, password)` Logs the user in by confirming its username and matching provided password with password from *users* table
 <br>
-`showUsers()` Debugging function to `SELECT * FROM users`. 
+- `showUsers()` Debugging function to SELECT * FROM users. 
 
 #### 3. file_manager.js
 **LOGIC :** <br>
@@ -93,12 +93,12 @@ We have 3 tables in our database -
 *HOW I DID IT?* 👉 parent_folder property of *files* table can also be <code>null</code>, and put the file directly in root folder "username/" <br>
 
 
-`checkFolder(username, foldername)` Returns false if given "username" has already created a "foldername" <br>
-`checkSubFolder(username, sub_folder_name, parent_folder_name)` Returns false if "username" has already created a "parent_folder_name/sub_folder_name" <br>
-`checkFile(filename, username, sub_folder_name=null)` Returns false if "username" has already created a "sub_folder_name/filename". If sub_folder_name=null, we are in root directory, and we can't have same named files there too! <br>
-`uploadFolder(username, foldername, etag, parent_folder=null)` Update the *folders* table by uploading folder to it.<br>
-`uploadFile(filename, username, size, etag, sub_folder_name=null)` Update the *files* table by uploading file to it.<br>
-`showFolders()` Debugging function to `SELECT * FROM folders`. <br>
-`showFiles()` Debugging function to `SELECT * FROM files`.  <br>
+- `checkFolder(username, foldername)` Returns false if given "username" has already created a "foldername" <br>
+- `checkSubFolder(username, sub_folder_name, parent_folder_name)` Returns false if "username" has already created a "parent_folder_name/sub_folder_name" <br>
+- `checkFile(filename, username, sub_folder_name=null)` Returns false if "username" has already created a "sub_folder_name/filename". If sub_folder_name=null, we are in root directory, and we can't have same named files there too! <br>
+- `uploadFolder(username, foldername, etag, parent_folder=null)` Update the *folders* table by uploading folder to it.<br>
+- `uploadFile(filename, username, size, etag, sub_folder_name=null)` Update the *files* table by uploading file to it.<br>
+- `showFolders()` Debugging function to SELECT * FROM folders. <br>
+- `showFiles()` Debugging function to SELECT * FROM files.  <br>
 
 #### 4. file_manager.js
