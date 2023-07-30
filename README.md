@@ -72,4 +72,12 @@ We have 3 tables in our database -
 `register_user(username, email, password)` Registers the user by adding it to *users* table <br>
 `login_user(username, password)` Logs the user in by confirming its username and matching provided password with password from *users* table
 <br>
-`showUsers()` Debugging function to `SELECT * FROM users`.
+`showUsers()` Debugging function to `SELECT * FROM users`. 
+
+#### 3. file_manager.js
+> LOGIC
+> One user cannot create folder with same name twice., but two users can create folders with same names.
+> One user cannot create subfolder with same name inside a folder, but he can create subfolders with same name inside different folders
+> One user cannot create file with same name inside a folder, but he can create a file with same name in different folders.
+> User can create file without any folders
+`checkFolder(username, foldername)` Returns false if given user has already created a folder
