@@ -76,19 +76,19 @@ We have 3 tables in our database -
 
 #### 3. file_manager.js
 **LOGIC :** <br>
-> **One user cannot create folder with same name twice., but two users can create folders with same names.**
+> **🤔One user cannot create folder with same name twice., but two users can create folders with same names.**
  
 *HOW I DID IT?* 👉 In s3 bucket, give all users their individual "home" folders (username arman will have a "arman/" folder), and add folders inside them ("arman/myfolder") and after succesful folder creation, add the foldername, username etc. to *folders* table. Also note that s3 allows user to upload same named objects again and again, and overwrites them. To prevent that we do a SQL query on our *folder* table to check if user has not already created folder with same name and then put the object on s3! <br>
 
-> **One user cannot create subfolder with same name inside a folder, but he can create subfolders with same name inside different folders**
+> **🤔One user cannot create subfolder with same name inside a folder, but he can create subfolders with same name inside different folders**
 
 *HOW I DID IT?* 👉 Similar to above approach we first check using SQL query if there isn't already a "folder", created by "user" and has same "parent folder" too. If all checks pass, put the object to s3 bucket, and later update the *folders* table too <br>
 
-> **One user cannot create file with same name inside a folder, but he can create a file with same name in different folders.** 
+> **🤔One user cannot create file with same name inside a folder, but he can create a file with same name in different folders.** 
 
 *HOW I DID IT?* 👉 Exact same approach, how files are to subfolders is analogous to how subfolders are to folders <br>
 
-> **User can create file without any folders** 
+> **🤔User can create file without any folders** 
 
 *HOW I DID IT?* 👉 sub_folder property of *files* table can also be <code>null</code>, and put the file directly in root folder "username/" <br>
 
