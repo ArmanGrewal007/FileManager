@@ -75,9 +75,13 @@ We have 3 tables in our database -
 `showUsers()` Debugging function to `SELECT * FROM users`. 
 
 #### 3. file_manager.js
-> LOGIC
+**LOGIC :** <br>
 > One user cannot create folder with same name twice., but two users can create folders with same names. <br>
+*HOW I DID IT?* 👉 In s3 bucket, give all users their individual "home" folders (username arman will have a "arman/" folder), and add folders inside them ("arman/myfolder") and after succesful folder creation, add the foldername, username etc. to *folders* table. Also note that s3 allows user to upload same named objects again and again, and overwrites them. To prevent that we do a SQL query on our *folder* table to check if user has not already created folder with same name and then put the object on s3! <br>
 > One user cannot create subfolder with same name inside a folder, but he can create subfolders with same name inside different folders <br>
+*HOW I DID IT?* 👉 Similar to above approach we first check using SQL query if there is already a "folder", created by "user" and has same "parent folder" too. If all checks pass, put the object to s3 bucket, and later update the *folders* table too <br>
 > One user cannot create file with same name inside a folder, but he can create a file with same name in different folders. <br>
 > User can create file without any folders <br>
-`checkFolder(username, foldername)` Returns false if given user has already created a folder
+
+`checkFolder(username, foldername)` Returns false if given "username" has already created a "foldername"
+`checkSubFolder(username, sub_folder_name, parent_folder_name)` Returns false if "username" has already created a "parent_folder_name/sub_folder_name"
