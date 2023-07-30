@@ -76,8 +76,8 @@ We have 3 tables in our database -
 
 #### 3. file_manager.js
 > LOGIC
-> One user cannot create folder with same name twice., but two users can create folders with same names.
-> One user cannot create subfolder with same name inside a folder, but he can create subfolders with same name inside different folders
-> One user cannot create file with same name inside a folder, but he can create a file with same name in different folders.
-> User can create file without any folders
+> One user cannot create folder with same name twice., but two users can create folders with same names. <br>
+> One user cannot create subfolder with same name inside a folder, but he can create subfolders with same name inside different folders <br>
+> One user cannot create file with same name inside a folder, but he can create a file with same name in different folders. <br>
+> User can create file without any folders <br>
 `checkFolder(username, foldername)` Returns false if given user has already created a folder
