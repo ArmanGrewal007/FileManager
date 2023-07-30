@@ -56,7 +56,7 @@ We have 3 tables in our database -
 <table>
 <tr><th colspan="6" align="center"> folders </th></tr>
 <tr><th> id </th> <th> name </th> <th> created_by </th> <th> parent_foler </th> <th> s3_object_key </th> <th> created_at </th> </tr> 
-<tr><td> folder id </td><td> folder name </td><td> Username of user who created that folder </td><td> Parent folder id (<code>null<code> if there is no parent) </td> <td> Unique key to identify object in s3 bucket </td> <td> Timestamp of creation</td> </tr>
+<tr><td> folder id </td><td> folder name </td><td> Username of user who created that folder </td><td> Parent folder id (<code>null</code> if there is no parent) </td> <td> Unique key to identify object in s3 bucket </td> <td> Timestamp of creation</td> </tr>
 </table>
 
 `initialize_tables()` creates 3 necessary tables, if they are not already created.
