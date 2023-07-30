@@ -69,6 +69,7 @@ We have 3 tables in our database -
 
 #### 2. db.js 
 
+Functions --> <br>
 - `register_user(username, email, password)` Registers the user by adding it to *users* table <br>
 - `login_user(username, password)` Logs the user in by confirming its username and matching provided password with password from *users* table
 <br>
@@ -92,7 +93,7 @@ We have 3 tables in our database -
 
 *HOW I DID IT?* 👉 parent_folder property of *files* table can also be <code>null</code>, and put the file directly in root folder "username/" <br>
 
-
+Functions --> <br>
 - `checkFolder(username, foldername)` Returns false if given "username" has already created a "foldername" <br>
 - `checkSubFolder(username, sub_folder_name, parent_folder_name)` Returns false if "username" has already created a "parent_folder_name/sub_folder_name" <br>
 - `checkFile(filename, username, sub_folder_name=null)` Returns false if "username" has already created a "sub_folder_name/filename". If sub_folder_name=null, we are in root directory, and we can't have same named files there too! <br>
@@ -101,4 +102,37 @@ We have 3 tables in our database -
 - `showFolders()` Debugging function to SELECT * FROM folders. <br>
 - `showFiles()` Debugging function to SELECT * FROM files.  <br>
 
-#### 4. file_manager.js
+#### 4. index.js
+
+This is our main JavaScript file, which inherits all the methods defined in previous files and calls them.
+
+List of API endpoints --> <br>
+- `/register` To register the user and redirect to `/interface`
+- `/login` To login the user and redirect to `/interface`
+- `/interface` File manager interface that has 3 options - Add folder, subfolder and file
+- `/folders-interface` Interface to input folder name 
+- `/folders` To handle folder upload to s3 bucket
+- `/subfolders-interface`Interface to input subfolder and parentfolder name 
+- `/subfolders` To handle subolder upload to s3 bucket
+- `/files-interface` Interface to browse files from local disk 
+- `/files` To handle files upload to s3 bucket
+- `/users` (Debugger) To show all registered users 
+- `/folders-v` (Debugger) To show all created folders
+- `/file-v` (Debugger) To show all created files
+- `/list` (Debugger) To show all uploaded content on s3 bucket
+
+## Overall workflow -->  
+1. User selects registeration interface, inputs username, email and sets a password.
+    1. Validation that user is not already registered under the same name is done by SQL queries.
+2. User selects login interface, inputs username and password.
+    1. Validation that user exists in *users* table
+    2. Validation that input password is matched with password_hash in *users* table
+3. After Loggin/Registering user is redirected to File Manager Interface
+    1. User selects "Add folder", he is redirected to Add a new folder interface.
+        1. User can add a new folder and is redirected back to File Manager Interface. Also it has validation checks that same user has not already created same folder
+    2. User selects "Add folder", he is redirected to Add a new subfolder interface.
+        1. User can add a new subfolder and is redirected back to File Manager Interface. Also it has validation checks that same user has not already created same subfolder inside parentfolder
+    3. User selects "Add file", he is redirected to Upload file interface.
+        1. User can browse for files in local disk
+        2. User can check if he want file to contain original name, or should he give it a new name
+        3. User can select the path where that file should be uploaded. Also it has validation checks that those folders and subfolders actually exists in our database 
