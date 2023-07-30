@@ -43,7 +43,7 @@ It contains all necessary JavaScript files, that maintain all the functionality.
 
 ### Detailed overview of all contents 
 
-#### db_init.js 
+#### 1. db_init.js 
 
 Uses the `pg` package to setup connection to our database. <br>
 We have 3 tables in our database - 
@@ -67,8 +67,9 @@ We have 3 tables in our database -
 
 `initialize_tables()` creates these 3 necessary tables, if they are not already created.
 
-#### db.js 
+#### 2. db.js 
 
-`register_user(username, email, password)` Registers the user by adding it to *users* table
+`register_user(username, email, password)` Registers the user by adding it to *users* table <br>
 `login_user(username, password)` Logs the user in by confirming its username and matching provided password with password from *users* table
-
+<br>
+`showUsers()` Debugging function to `SELECT * FROM users`.
