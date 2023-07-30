@@ -82,11 +82,15 @@ We have 3 tables in our database -
 
 > One user cannot create subfolder with same name inside a folder, but he can create subfolders with same name inside different folders
 
-*HOW I DID IT?* 👉 Similar to above approach we first check using SQL query if there is already a "folder", created by "user" and has same "parent folder" too. If all checks pass, put the object to s3 bucket, and later update the *folders* table too <br>
+*HOW I DID IT?* 👉 Similar to above approach we first check using SQL query if there isn't already a "folder", created by "user" and has same "parent folder" too. If all checks pass, put the object to s3 bucket, and later update the *folders* table too <br>
 
 > One user cannot create file with same name inside a folder, but he can create a file with same name in different folders. 
 
+*HOW I DID IT?* 👉 Exact same approach, how files are to subfolders is analogous to how subfolders are to folders <br>
+
 > User can create file without any folders <br>
+*HOW I DID IT?* 👉 sub_folder property of *files* table can also be <code>null</code>, and put the file directly in root folder "username/" <br>
+
 
 `checkFolder(username, foldername)` Returns false if given "username" has already created a "foldername"
 `checkSubFolder(username, sub_folder_name, parent_folder_name)` Returns false if "username" has already created a "parent_folder_name/sub_folder_name"
