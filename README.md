@@ -23,6 +23,13 @@ NOTE about AWS S3 credentials - *I have setup the AccessKey and SecretAccessKey 
 App structure is bifurcated into Fronted and Backend folders.
 
 ### Frontend 
-It contains several .ejs files, i.e. all the files served using our backend. <br>
+It contains several HTML files, i.e. all the files served using our backend. <br>
 I haven't used any frontend library, maybe will update it in future ✔
 
+## Backend 
+It contains all necessary JavaScript files, that maintain all the functionality.
+
+#### Basic overview of all contents 
+| -- | -- | -- |
+| Sr no. | File/Folder name | Description |
+| 1 | **db_init.js** | PostgresSQL database setup and tables initialization |
