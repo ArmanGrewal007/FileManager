@@ -30,6 +30,7 @@ I haven't used any frontend library, maybe will update it in future ✔
 It contains all necessary JavaScript files, that maintain all the functionality.
 
 #### Basic overview of all contents 
-| -- | -- | -- |
+
 | Sr no. | File/Folder name | Description |
+| -- | -- | -- |
 | 1 | **db_init.js** | PostgresSQL database setup and tables initialization |
