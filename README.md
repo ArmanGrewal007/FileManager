@@ -26,10 +26,10 @@ App structure is bifurcated into Fronted and Backend folders.
 It contains several HTML files, i.e. all the files served using our backend. <br>
 I haven't used any frontend library, maybe will update it in future ✔
 
-## Backend 
+### Backend 
 It contains all necessary JavaScript files, that maintain all the functionality.
 
-#### Basic overview of all contents 
+### Basic overview of all contents 
 
 | Sr no. | File/Folder name | Description |
 | -- | -- | -- |
@@ -40,11 +40,14 @@ It contains all necessary JavaScript files, that maintain all the functionality.
 | 5 | **.env** | Environment variable configuration file | 
 | 6 | **uploads/** | Folder which stores files temporarily (for validation checks) before pushing them to s3 bucket |
 
-#### Detailed overview of all contents 
+### Detailed overview of all contents 
 
-##### db_init.js 
+#### db_init.js 
 
 Uses the `pg` package to setup connection to our database. <br>
-```javascript
-async function initialize_tables()
-```
+We have 3 tables in our database - 
+| id | username | email | password_hash| 
+| | | | |
+| table id | Registered user | Email of that user | Hashed password of that user (using bcrypt) |
+
+`initialize_tables()` creates 3 necessary tables, if they are not already created.
