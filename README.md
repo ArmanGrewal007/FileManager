@@ -64,4 +64,11 @@ We have 3 tables in our database -
 <tr><th> id </th> <th> name </th> <th> size </th> <th> uploaded_by </th> <th> parent_foler </th> <th> s3_object_key </th> <th> created_at </th> </tr> 
 <tr><td> file id </td><td> file name </td> <th> size in bytes </th><td> Username of user who created that file </td><td> Parent folder id (<code>null</code> if there is no parent) </td> <td> Unique key to identify object in s3 bucket </td> <td> Timestamp of creation</td> </tr>
 </table>
-`initialize_tables()` creates 3 necessary tables, if they are not already created.
+
+`initialize_tables()` creates these 3 necessary tables, if they are not already created.
+
+#### db.js 
+
+`register_user(username, email, password)` Registers the user by adding it to *users* table
+`login_user(username, password)` Logs the user in by confirming its username and matching provided password with password from *users* table
+
