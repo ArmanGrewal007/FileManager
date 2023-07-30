@@ -68,7 +68,7 @@ We have 3 tables in our database -
 `initialize_tables()` creates these 3 necessary tables, if they are not already created.
 
 #### 2. db.js 
-
+Has user logging and registering functionalities <br>
 Functions --> <br>
 - `register_user(username, email, password)` Registers the user by adding it to *users* table <br>
 - `login_user(username, password)` Logs the user in by confirming its username and matching provided password with password from *users* table
@@ -106,6 +106,18 @@ Functions --> <br>
 
 This is our main JavaScript file, which inherits all the methods defined in previous files and calls them.
 
+List of packages used --> <br>
+- `express` Express.js to handle routing
+- `multer` For taking files as input, and storing them temporarily in "uploads/" folder
+- `path` To obtain absolute paths of files, for hosting them. Also used to find where multer has stored files temporarily, so that now they can be uploaded to s3 bucket
+- `AWS.S3` To put the object on s3 bucket 
+
+List of middleware used --> <br>
+- `express-session` To setup a session and a variable req.session.username in it.
+- `isAuthenticated()` Custom middleware for authentication. User can not enter subsequent routes, unless he is logged in
+- `express.json()` Alternative to body-parser, so that we can extract data from HTML forms
+- `morgan` For debugging puposes
+
 List of API endpoints --> <br>
 - `/register` To register the user and redirect to `/interface`
 - `/login` To login the user and redirect to `/interface`
@@ -120,6 +132,8 @@ List of API endpoints --> <br>
 - `/folders-v` (Debugger) To show all created folders
 - `/file-v` (Debugger) To show all created files
 - `/list` (Debugger) To show all uploaded content on s3 bucket
+
+
 
 ## Overall workflow -->  
 1. User selects registeration interface, inputs username, email and sets a password.
