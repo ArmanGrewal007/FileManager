@@ -16,7 +16,8 @@ File-Manager app using `Node.js` + `Express.js` in backend which sends file to a
 6. `pgadmin 4` (PostgreSQL GUI) should be installed and should have a server and a database on it. One must go to **`Backend/db_init.js`** and configure your database first. (Note: App will create the tables itself, one only needs to setup the database)
 7.  App is ready to run (by default on [https://localhost:3000](http://localhost:3000/)) --> run the command `npm start` to fire up 🚀
 
-NOTE about AWS S3 credentials - *I have setup the AccessKey and SecretAccessKey using custom IAM policy, they provide limited flexibility (enough for this small project), and key will expire on Aug 16, 2023 EOD (UTC timezone)*
+> **NOTE**
+About AWS S3 credentials - *I have setup the AccessKey and SecretAccessKey using custom IAM policy, they provide limited flexibility (enough for this small project), and key will expire on Aug 16, 2023 EOD (UTC timezone)*
 
 ##  🛠 App structure
 
@@ -47,7 +48,7 @@ It contains all necessary JavaScript files, that maintain all the functionality.
 Uses the `pg` package to setup connection to our database. <br>
 We have 3 tables in our database - 
 | id | username | email | password_hash| 
-| | | | |
+| --|-- |-- |-- |
 | table id | Registered user | Email of that user | Hashed password of that user (using bcrypt) |
 
 `initialize_tables()` creates 3 necessary tables, if they are not already created.
