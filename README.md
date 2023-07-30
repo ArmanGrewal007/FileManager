@@ -47,8 +47,10 @@ It contains all necessary JavaScript files, that maintain all the functionality.
 
 Uses the `pg` package to setup connection to our database. <br>
 We have 3 tables in our database - 
-| id | username | email | password_hash| 
-| --|-- |-- |-- |
-| table id | Registered user | Email of that user | Hashed password of that user (using bcrypt) |
+<table>
+<tr><th colspan="4" align="center"> users </th></tr>
+<tr><th> id </th> <th> username </th> <th> email </th> <th> password_hash </th> </tr> 
+<tr><td> table id </td><td> Registered user </td><td> Email of that user </td><td> Hashed password of that user (using bcrypt) </td> </tr>
+</table>
 
 `initialize_tables()` creates 3 necessary tables, if they are not already created.
