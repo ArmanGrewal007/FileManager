@@ -100,6 +100,8 @@ Functions --> <br>
 - `uploadFolder(username, foldername, etag, parent_folder=null)` Update the *folders* table by uploading folder to it.<br>
 - `uploadFile(filename, username, size, etag, sub_folder_name=null)` Update the *files* table by uploading file to it.<br>
 - `deleteFile(filename, username, sub_folder_name=null)` Delete the "filename" uploaded by "username" in folder "sub_folder_name" <br>
+- `renameFile(old_filename, new_filename, username, sub_folder_name)` Rename "old_filename" to "new_filename" <br>
+- `moveFile(filename, username, old_folder, new_folder)` Moves file from "old_folder" to "new_folder" <br>
 - `showFolders()` Debugging function to SELECT * FROM folders. <br>
 - `showFiles()` Debugging function to SELECT * FROM files.  <br>
 
