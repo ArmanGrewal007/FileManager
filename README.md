@@ -122,7 +122,7 @@ List of middleware used --> <br>
 List of API endpoints --> <br>
 - `/register` To register the user and redirect to `/interface`
 - `/login` To login the user and redirect to `/interface`
-- `/interface` File manager interface that has 3 options - Add folder, subfolder and file
+- `/interface` File manager interface that has 6 options - Add folder, subfolder and file, and delete, rename and move file. Also it has a list of files uploaded by currently logged in user (which is dynamically updated).
 - `/folders-interface` Interface to input folder name 
 - `/folders` To handle folder upload to s3 bucket
 - `/subfolders-interface`Interface to input subfolder and parentfolder name 
@@ -149,6 +149,7 @@ List of API endpoints --> <br>
     1. Validation that user exists in *users* table
     2. Validation that input password is matched with password_hash in *users* table
 3. After Loggin/Registering user is redirected to File Manager Interface
+    1. User can see the files/folders he has already uploaded. This list is dynamically updated every time this page is refreshed 
     1. User selects "Add folder", he is redirected to Add a new folder interface.
         1. User can add a new folder and is redirected back to File Manager Interface. Also it has validation checks that same user has not already created same folder
     2. User selects "Add folder", he is redirected to Add a new subfolder interface.
