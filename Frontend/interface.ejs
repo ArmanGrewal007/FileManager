@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>File Manager interface</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="alert alert-danger error" style="display: none;">
+            <%= error %>
+        </div>
+        <div class="alert alert-info info" style="display: none;">
+            <%= info %>
+        </div>
+        <h1> Hello <%= username %>
+        </h1>
+        <h1 class="mt-4"> File manager interface </h1>
+        <a href="/folders-interface"><button class="btn btn-primary mx-3"> Add folder </button></a>
+        <a href="/subfolders-interface"><button class="btn btn-primary mx-3"> Add subfolder </button></a>
+        <a href="/files-interface"><button class="btn btn-primary mx-3"> Add files </button></a>
+        <a href="/files-delete"><button class="btn btn-primary mx-3"> Delete files </button></a>
+        <a href="/files-rename"><button class="btn btn-primary mx-3"> Rename files </button></a>
+        <a href="/files-move"><button class="btn btn-primary mx-3"> Move files </button></a>
+    </div>
+    <div class="container mt-5">
+        <h1>Files and Folders currently uploaded on s3 bucket --> </h1>
+        <ul class="list-group">
+            <% files.forEach(file=> { %>
+                <li class="list-group-item">
+                    <%= file %>
+                </li>
+                <% }); %>
+        </ul>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const errorDiv = document.querySelector('.error');
+            const errorText = "<%= error %>";
+
+            if (errorText.trim() !== "") {
+                errorDiv.textContent = errorText;
+                errorDiv.style.display = "block";
+            }
+        });
+        // JavaScript code to show info message dynamically
+        document.addEventListener('DOMContentLoaded', function () {
+            const infoDiv = document.querySelector('.info');
+            const infoText = "<%= info %>";
+
+            if (infoText.trim() !== "") {
+                infoDiv.textContent = infoText;
+                infoDiv.style.display = "block";
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie-edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>File Upload utility</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="alert alert-danger error" style="display: none;">
+            <%= error %>
+        </div>
+        <div class="alert alert-info info" style="display: none;">
+            <%= info %>
+        </div>
+        <h1 class="mb-4"> Hello <%= username %>
+        </h1>
+        <h2> File upload utility </h2>
+        <form action="/files" method="post" enctype="multipart/form-data">
+            <input type="file" name="uploadhere" id="uploadhere" required /> <br> <br>
+            <label>
+                <input type="checkbox" name="use_original_name" id="use_original_name" />
+                Use Original Name
+            </label> <br> <br>
+            Select location:
+            <input type="text" name="parent_folder_name" id="parent_folder_name" placeholder="parent folder" /> /
+            <input type="text" name="sub_folder_name" id="sub_folder_name" placeholder="sub folder" /> /
+            <input type="text" name="file_name" id="file_name" placeholder="filename(with extension)" />
+            <br>
+            <i> (Leave the above fields empty if you don't want to save the file to a particular folder) </i>
+            <br> <br>
+            <button type="submit" class="btn btn-primary"> Upload file </button> <br><br>
+
+            <form>
+    </div>
+
+
+
+    <script>
+        // JavaScript code to handle the checkbox state and enable/disable the "file_name" field
+        const useOriginalNameCheckbox = document.getElementById('use_original_name');
+        const fileNameInput = document.getElementById('file_name');
+
+        useOriginalNameCheckbox.addEventListener('change', function () {
+            if (this.checked) {
+                // If the checkbox is checked, disable the "file_name" input and clear its value
+                fileNameInput.style.display = 'none';
+                fileNameInput.value = '';
+            } else {
+                // If the checkbox is unchecked, enable the "file_name" input
+                fileNameInput.style.display = 'inline-block';
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const errorDiv = document.querySelector('.error');
+            const errorText = "<%= error %>";
+
+            if (errorText.trim() !== "") {
+                errorDiv.textContent = errorText;
+                errorDiv.style.display = "block";
+            }
+        });
+        // JavaScript code to show info message dynamically
+        document.addEventListener('DOMContentLoaded', function () {
+            const infoDiv = document.querySelector('.info');
+            const infoText = "<%= info %>";
+
+            if (infoText.trim() !== "") {
+                infoDiv.textContent = infoText;
+                infoDiv.style.display = "block";
+            }
+        });
+
+    </script>
+</body>
+
+</html>

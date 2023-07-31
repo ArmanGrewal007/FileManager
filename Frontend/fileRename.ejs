@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>File Rename utility</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="alert alert-danger error" style="display: none;">
+            <%= error %>
+        </div>
+        <div class="alert alert-info info" style="display: none;">
+            <%= info %>
+        </div>
+        <h1 class="mb-4"> Hello <%= username %>
+        </h1>
+        <h2>File Rename utility</h2>
+        <form action="/fileren" method="POST">
+            <div class="form-group">
+                <label for="old_filename">File name:</label>
+                <input type="text" class="form-control" id="old_filename" name="old_filename" required>
+            </div>
+            <div class="form-group">
+                <label for="parent_folder_path">Parent Folder path:</label>
+                <input type="text" class="form-control" id="parent_folder_path" name="parent_folder_path"
+                    placeholder="folder/sub1/sub2..." required>
+                <i> We need absolute path here, because we need to push the file on respective location on s3</i>
+            </div>
+
+            <div class="form-group">
+                <label for="new_filename">New file name:</label>
+                <input type="text" class="form-control" id="new_filename" name="new_filename" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Rename</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const errorDiv = document.querySelector('.error');
+            const errorText = "<%= error %>";
+
+            if (errorText.trim() !== "") {
+                errorDiv.textContent = errorText;
+                errorDiv.style.display = "block";
+            }
+        });
+        // JavaScript code to show info message dynamically
+        document.addEventListener('DOMContentLoaded', function () {
+            const infoDiv = document.querySelector('.info');
+            const infoText = "<%= info %>";
+
+            if (infoText.trim() !== "") {
+                infoDiv.textContent = infoText;
+                infoDiv.style.display = "block";
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
