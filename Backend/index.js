@@ -10,7 +10,6 @@ const client = require('./db_init');
 const db = require('./db');
 // For file uploads
 const multer = require('multer');
-const multerS3 = require('multer-s3');
 const fs = require('fs');
 const AWS = require('aws-sdk');
 const file_manager = require('./file_manager');
@@ -59,7 +58,7 @@ app.post('/login', async (req, res) => {
 // Middleware to check if the user is authenticated (logged in)
 const isAuthenticated = (req, res, next) => {
     // Exclude /login, /signup and debugging routes from authentication
-    if (['/login', '/register', '/users', '/folder-v', '/file-v', '/list'].includes(req.path)) {
+    if (['/login', '/register', '/users', '/folder-v', '/file-v', '/list', '/'].includes(req.path)) {
         return next();
     }
     if (req.session.username) {
@@ -98,6 +97,10 @@ app.get('/interface', async (req, res) => {
     const infoMessage = req.query.info || '';
     res.render(path.resolve('Frontend', 'interface.ejs'), { error: errorMessage, info:infoMessage, files:usernameFiles});
 });
+
+app.get('/', (req, res) => {
+    res.render(path.resolve('Frontend', 'main.ejs'));
+})
 
 // API endpoints to Get users
 app.get('/users', async (req, res) => {
