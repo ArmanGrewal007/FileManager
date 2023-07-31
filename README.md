@@ -99,6 +99,7 @@ Functions --> <br>
 - `checkFile(filename, username, sub_folder_name=null)` Returns false if "username" has already created a "sub_folder_name/filename". If sub_folder_name=null, we are in root directory, and we can't have same named files there too! <br>
 - `uploadFolder(username, foldername, etag, parent_folder=null)` Update the *folders* table by uploading folder to it.<br>
 - `uploadFile(filename, username, size, etag, sub_folder_name=null)` Update the *files* table by uploading file to it.<br>
+- `deleteFile(filename, username, sub_folder_name=null)` Delete the "filename" uploaded by "username" in folder "sub_folder_name" <br>
 - `showFolders()` Debugging function to SELECT * FROM folders. <br>
 - `showFiles()` Debugging function to SELECT * FROM files.  <br>
 
@@ -128,6 +129,12 @@ List of API endpoints --> <br>
 - `/subfolders` To handle subolder upload to s3 bucket
 - `/files-interface` Interface to browse files from local disk 
 - `/files` To handle files upload to s3 bucket
+- `/files-delete` Interface to delete files
+- `/filedel`
+- `/files-rename` Interface to rename files
+- `/fileren`
+- `/files-move` Interface to move files
+- `/filemove`
 - `/users` (Debugger) To show all registered users 
 - `/folders-v` (Debugger) To show all created folders
 - `/file-v` (Debugger) To show all created files
@@ -149,4 +156,6 @@ List of API endpoints --> <br>
     3. User selects "Add file", he is redirected to Upload file interface.
         1. User can browse for files in local disk
         2. User can check if he want file to contain original name, or should he give it a new name
-        3. User can select the path where that file should be uploaded. Also it has validation checks that those folders and subfolders actually exists in our database 
+        3. User can select the path where that file should be uploaded. Also it has validation checks that those folders and subfolders actually exists in our database
+    4. User selects "Delete file", he is reditected to File deletion interface.
+        1. User can give filename and path, clicking on delete will delete the file from *files* as well as s3 bucket     
