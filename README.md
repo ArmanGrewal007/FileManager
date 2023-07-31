@@ -130,11 +130,11 @@ List of API endpoints --> <br>
 - `/files-interface` Interface to browse files from local disk 
 - `/files` To handle files upload to s3 bucket
 - `/files-delete` Interface to delete files
-- `/filedel`
+- `/filedel` To handle file deletions from s3 bucket
 - `/files-rename` Interface to rename files
-- `/fileren`
+- `/fileren` To rename files in s3 bucket
 - `/files-move` Interface to move files
-- `/filemove`
+- `/filemove` To move files within s3 bucket
 - `/users` (Debugger) To show all registered users 
 - `/folders-v` (Debugger) To show all created folders
 - `/file-v` (Debugger) To show all created files
