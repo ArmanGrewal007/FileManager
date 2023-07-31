@@ -158,4 +158,8 @@ List of API endpoints --> <br>
         2. User can check if he want file to contain original name, or should he give it a new name
         3. User can select the path where that file should be uploaded. Also it has validation checks that those folders and subfolders actually exists in our database
     4. User selects "Delete file", he is reditected to File deletion interface.
-        1. User can give filename and path, clicking on delete will delete the file from *files* as well as s3 bucket     
+        1. User can give filename and path, clicking on delete will delete the file from *files* as well as s3 bucket
+    5. User selects "Rename file", he is reditected to File renaming interface.
+        1. User can give oldfilename, newfilename and path, clicking on reaname will reanme the file within *files* as well as on s3 bucket
+    6. User selects "Move file", he is reditected to File moving interface.
+        1. User can give filename, oldpath and new path, clicking on move will move the file to respective folder in s3 bucket, and will also do a respective update of *files* table    
