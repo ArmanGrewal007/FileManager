@@ -166,3 +166,6 @@ List of API endpoints --> <br>
         1. User can give oldfilename, newfilename and path, clicking on reaname will reanme the file within *files* as well as on s3 bucket
     6. User selects "Move file", he is reditected to File moving interface.
         1. User can give filename, oldpath and new path, clicking on move will move the file to respective folder in s3 bucket, and will also do a respective update of *files* table    
+
+> **WARNING**
+> Note that you can only create subfolders inside folders, and can not create sub-subfolders. (Question requirement was only to make folder/subfolder). Although this can be easily achieved, I think we should save it for FileManager v2 😅
