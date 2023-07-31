@@ -13,6 +13,7 @@ File-Manager app using `Node.js` + `Express.js` in backend (and bootstrapCSS + e
     2. For windows you have to install it from [AWS official website](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
     3. After installing run `aws configure` in VSCode's terminal and specify `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`, which can be obtained from **`Backend/.env`** file.
     4. Alternatively you can `export AWS_ACCESS_KEY_ID="id_provided_there"` and `export AWS_ACCESS_KEY_ID="id_provided_there"` in the VSCode's terminal, if you don't want to use AWS' cli.
+    5. bucket name is - `fm-bucket` and region name is - `ap-southeast-2`
 6. `pgadmin 4` (PostgreSQL GUI) should be installed and should have a server and a database on it. One must go to **`Backend/db_init.js`** and configure your database first. (Note: App will create the tables itself, one only needs to setup the database)
 7.  App is ready to run (by default on [https://localhost:3000](http://localhost:3000/)) --> run the command `npm start` to fire up 🚀
 
