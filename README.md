@@ -2,7 +2,7 @@
 
 File-Manager app using `Node.js` + `Express.js` in backend (and bootstrapCSS + ejs in frontend😅) which sends file to a private `AWS S3 bucket`. Also maintains a `PostgreSQL` database side by side, for storing metadata and validation of file/folder uploads.
 
-![Watch the video](https://img.youtube.com/vi/gcfDvRSu0qk/hqdefault.jpg)](https://www.youtube.com/embed/gcfDvRSu0qk)
+[![Watch the video](https://img.youtube.com/vi/gcfDvRSu0qk/hqdefault.jpg)](https://www.youtube.com/embed/gcfDvRSu0qk)
 
 
 ## 🚀 How to run?
